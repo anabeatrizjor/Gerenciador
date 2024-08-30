@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/oceanBack"
+    tools:context=".AddNote">
+
+    <ScrollView
+        android:id="@+id/scrollGeral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:id="@+id/layoutGeral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/layoutTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/backArrow"
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/previous_arrow"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="10dp"/>
+
+                <ImageView
+                    android:id="@+id/colorSelector"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/blue_color"
+                    android:layout_marginTop="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="70dp"/>
+
+                <ImageView
+                    android:id="@+id/miniMenuNote"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/mini_menu_options_ic"
+                    android:layout_marginTop="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="10dp"/>
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/titleInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Title"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="30sp"
+                android:layout_below="@+id/layoutTop"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"/>
+
+            <LinearLayout
+                android:id="@+id/divisaTitle"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/greyGlobal"
+                android:layout_below="@+id/titleInput"
+                android:layout_marginTop="-10dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:orientation="horizontal" />
+
+            <EditText
+                android:id="@+id/noteInput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divisaTitle"
+                android:textSize="20sp"
+                android:hint="Digite aqui"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/poppins_light"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="30dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/blueSuperClean"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:id="@+id/checkSave"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:src="@drawable/check_ic"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="20dp"/>
+
+        <ImageView
+            android:id="@+id/editPen"
+            android:layout_width="30dp"
+            android:layout_height="40dp"
+            android:src="@drawable/edit_ic"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="20dp"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
