@@ -12,24 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gerenciador_De_Notas"
         tools:targetApi="31">
+
         <activity
             android:name=".AddNote"
             android:exported="false" />
+
         <activity
             android:name=".CalendarScreen"
             android:exported="false" />
+
         <activity
             android:name=".SplashScreen"
             android:exported="false" />
+
         <activity
-            android:name=".MenuScreen"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".NoteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,6 +37,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

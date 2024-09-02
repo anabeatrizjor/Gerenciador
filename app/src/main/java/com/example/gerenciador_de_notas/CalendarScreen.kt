@@ -27,7 +27,6 @@ class CalendarScreen : AppCompatActivity(), CalendarAdapter.OnItemListener {
 
         val menuHome = findViewById<ImageView>(R.id.menuHomeCalendar)
         val menuCalendar = findViewById<ImageView>(R.id.menuCalendarCalendar)
-        val menuMenu = findViewById<ImageView>(R.id.menuMenuCalendar)
         val previousMonth = findViewById<ImageView>(R.id.previousArrow)
         val nextMonth = findViewById<ImageView>(R.id.forwardArrow)
 
@@ -40,15 +39,11 @@ class CalendarScreen : AppCompatActivity(), CalendarAdapter.OnItemListener {
         }
 
         menuHome.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, NoteActivity::class.java))
         }
 
         menuCalendar.setOnClickListener {
             startActivity(Intent(this, CalendarScreen::class.java))
-        }
-
-        menuMenu.setOnClickListener {
-            startActivity(Intent(this, MenuScreen::class.java))
         }
 
         window.statusBarColor = getColor(R.color.blueDark)
