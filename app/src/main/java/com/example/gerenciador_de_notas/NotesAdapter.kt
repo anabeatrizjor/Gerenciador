@@ -1,10 +1,10 @@
 package com.example.gerenciador_de_notas
-
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +34,7 @@ class NotesAdapter(
         holder.itemView.setBackgroundColor(ContextCompat.getColor(context, note.colorResId))
 
         holder.itemView.setOnClickListener {
+            // Open AddNote activity with note data
             val intent = Intent(context, AddNote::class.java).apply {
                 putExtra("NOTE_ID", note.id)
                 putExtra("NOTE_TITLE", note.title)
@@ -52,4 +53,9 @@ class NotesAdapter(
         notes = newNotes
         notifyDataSetChanged()
     }
+}
+class NoteViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    val background: RelativeLayout = view.findViewById(R.id.noteItemId)
+    val noteTitle: TextView = view.findViewById(R.id.noteTitle)
+    val noteContent: TextView = view.findViewById(R.id.noteContent)
 }

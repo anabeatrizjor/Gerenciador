@@ -1,36 +1,37 @@
-<!-- note_item.xml -->
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp"
+    android:id="@+id/noteItemId"
     android:background="@drawable/note_card_background"
     android:layout_marginBottom="10dp"
     android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"> <!-- Adiciona espaçamento entre os itens -->
+    android:layout_marginEnd="8dp">
 
     <TextView
         android:id="@+id/noteTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Note Title"
         android:textSize="20sp"
         android:fontFamily="@font/poppins_semibold"
         android:textColor="@color/grey"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="1dp"
         android:layout_below="@+id/noteTitle"
-        android:layout_marginEnd="60dp"
         android:background="@color/grey"/>
-
 
     <TextView
         android:id="@+id/noteContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/noteTitle"
+        android:text="Note Content"
         android:textSize="16sp"
-        android:fontFamily="@font/poppins_light"
+        android:fontFamily="@font/poppins_medium"
         android:textColor="@color/grey"
         android:maxLines="3"
         android:ellipsize="end"

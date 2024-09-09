@@ -45,10 +45,6 @@ class AddNote : AppCompatActivity() {
         val titleInput: EditText = findViewById(R.id.titleInput)
         val noteInput: EditText = findViewById(R.id.noteInput)
 
-
-        val colorResId = getSavedColorResId()  // Recupera o ID do recurso de cor salvo
-        updateColorSelector(colorResId)
-
         // Get data from Intent
         val intent = intent
         noteId = intent.getIntExtra("NOTE_ID", -1)
@@ -56,6 +52,7 @@ class AddNote : AppCompatActivity() {
         noteInput.setText(intent.getStringExtra("NOTE_CONTENT"))
         initialColor = intent.getIntExtra("NOTE_COLOR", R.color.oceanBack)
         applyBackgroundColor(initialColor)
+        updateColorSelectorImage(getSavedColorSelectorImage())
 
         colorSelector.setOnClickListener {
             selectColor()
@@ -97,28 +94,28 @@ class AddNote : AppCompatActivity() {
         pinkColor.setOnClickListener {
             saveBackgroundPreference(R.color.pinkBack)
             applyBackgroundColor(R.color.pinkBack)
-            updateColorSelector(R.drawable.pink_color)  // Update the colorSelector image
+            updateColorSelectorImage(R.drawable.pink_color)
             dialog.dismiss()
         }
 
         orangeColor.setOnClickListener {
             saveBackgroundPreference(R.color.orangeBack)
             applyBackgroundColor(R.color.orangeBack)
-            updateColorSelector(R.drawable.orange_color)  // Update the colorSelector image
+            updateColorSelectorImage(R.drawable.orange_color)
             dialog.dismiss()
         }
 
         yellowColor.setOnClickListener {
             saveBackgroundPreference(R.color.yellowBack)
             applyBackgroundColor(R.color.yellowBack)
-            updateColorSelector(R.drawable.yellow_color)  // Update the colorSelector image
+            updateColorSelectorImage(R.drawable.yellow_color)
             dialog.dismiss()
         }
 
         blueColor.setOnClickListener {
             saveBackgroundPreference(R.color.oceanBack)
             applyBackgroundColor(R.color.oceanBack)
-            updateColorSelector(R.drawable.blue_color)  // Update the colorSelector image
+            updateColorSelectorImage(R.drawable.blue_color)
             dialog.dismiss()
         }
 
@@ -129,10 +126,21 @@ class AddNote : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun updateColorSelector(drawableResId: Int) {
+    private fun updateColorSelectorImage(imageResId: Int) {
         val colorSelector = findViewById<ImageView>(R.id.colorSelector)
-        colorSelector.setImageResource(drawableResId)
+        colorSelector.setImageResource(imageResId)
     }
+
+    private fun getSavedColorSelectorImage(): Int {
+        return when (getSavedBackgroundPreference()) {
+            R.color.pinkBack -> R.drawable.pink_color
+            R.color.orangeBack -> R.drawable.orange_color
+            R.color.yellowBack -> R.drawable.yellow_color
+            R.color.oceanBack -> R.drawable.blue_color
+            else -> R.drawable.blue_color // Default image
+        }
+    }
+
 
     private fun saveNote() {
         val title = findViewById<EditText>(R.id.titleInput).text.toString()
@@ -240,16 +248,5 @@ class AddNote : AppCompatActivity() {
         noteInput.isEnabled = enable
 
         // Change the visibility of the Save button or other UI elements if necessary
-    }
-
-    private fun getSavedColorResId(): Int {
-        // Substitua pelo ID do recurso de cor salvo, exemplo:
-        return when (getSavedBackgroundPreference()) {
-            R.color.pinkBack -> R.drawable.pink_color
-            R.color.orangeBack -> R.drawable.orange_color
-            R.color.yellowBack -> R.drawable.yellow_color
-            R.color.oceanBack -> R.drawable.blue_color
-            else -> R.drawable.blue_color
-        }
     }
 }
